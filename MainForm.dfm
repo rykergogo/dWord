@@ -3,8 +3,8 @@ object dWordForm: TdWordForm
   Top = 0
   Anchors = []
   Caption = 'dWord'
-  ClientHeight = 344
-  ClientWidth = 256
+  ClientHeight = 343
+  ClientWidth = 252
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -12,14 +12,14 @@ object dWordForm: TdWordForm
   Font.Name = 'Segoe UI'
   Font.Style = []
   DesignSize = (
-    256
-    344)
+    252
+    343)
   TextHeight = 15
   object passwordListBox: TListBox
     Left = 8
     Top = 8
-    Width = 240
-    Height = 233
+    Width = 236
+    Height = 232
     Anchors = [akLeft, akTop, akRight, akBottom]
     ItemHeight = 15
     TabOrder = 0
@@ -27,27 +27,28 @@ object dWordForm: TdWordForm
   object genBtn: TButton
     Left = 8
     Top = 301
-    Width = 240
-    Height = 25
+    Width = 236
+    Height = 24
     Anchors = [akLeft, akTop, akRight, akBottom]
     Caption = 'Generate'
+    Enabled = False
     TabOrder = 1
     OnClick = genBtnClick
   end
   object passWordNum: TEdit
     Left = 8
     Top = 272
-    Width = 240
+    Width = 236
     Height = 23
     Anchors = [akLeft, akTop, akRight, akBottom]
     TabOrder = 2
-    OnKeyPress = passWordNumKeyPress
+    OnKeyUp = passWordNumKeyUp
   end
   object passwordLbl: TStaticText
     Left = 58
     Top = 247
-    Width = 126
-    Height = 19
+    Width = 122
+    Height = 18
     Anchors = [akLeft, akTop, akRight, akBottom]
     Caption = 'Passwords to Generate:'
     TabOrder = 3
