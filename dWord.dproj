@@ -102,6 +102,7 @@
             <Form>dWordForm</Form>
             <FormType>dfm</FormType>
         </DCCReference>
+        <DCCReference Include="Helpers.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

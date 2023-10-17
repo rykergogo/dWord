@@ -2,9 +2,10 @@ unit MainForm;
 
 interface
 
+
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, System.Math;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, System.Math,Helpers;
 
 type
   TdWordForm = class(TForm)
@@ -13,8 +14,7 @@ type
     passWordNum: TEdit;
     passwordLbl: TStaticText;
     procedure genBtnClick(Sender: TObject);
-    procedure passWordNumKeyUp(Sender: TObject; var Key: Word;
-      Shift: TShiftState);
+    procedure passWordNumChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -24,6 +24,7 @@ type
 var
   dWordForm: TdWordForm;
   setNumPass: Integer = -1;
+  flagValid: bool = true;
 
 implementation
 
@@ -35,7 +36,7 @@ procedure TdWordForm.genBtnClick(Sender: TObject);
 
   var
     i: Integer;
-
+    cmpName: String;
   const
     chooseFrom: array[0..61] of Char = ('a','b','c','d','e','f','g','h','i','j',
     'k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C',
@@ -43,56 +44,61 @@ procedure TdWordForm.genBtnClick(Sender: TObject);
     'W','X','Y','Z','1','2','3','4','5','6','7','8','9','0');
 
 
-
 begin
 
+  try
+    // Valid flag is set to true here in case it was false previously.
+
+    setNumPass := StrToInt(passWordNum.Text);
+    flagValid := true;
+  except
+    // Tell the system the input is not valid!
+
+    flagValid := false;
+    Application.MessageBox('Not a valid number.', 'Error', MB_OK Or MB_ICONERROR);
 
 
-  if setNumPass > 0 then
+  end;
+
+  if (setNumPass > 0) And (flagValid) then
 
   begin
+    // Clear any previous entries
+    passwordListBox.Clear;
+
+    cmpName := getCmpName();
 
     for i := 1 to setNumPass do
 
     begin
-      passwordListBox.Items.Add(chooseFrom[i]);
+      passwordListBox.Items.Add(cmpName);
+      passwordListBox.Items.Add(DateTimeToStr(GetTime()));
     end;
+
+    // Success message + reset and cleanup of controls.
+    passWordNum.Text := '';
+    setNumPass := -1;
+    Application.MessageBox('Passwords generated.', 'Done', MB_OK Or MB_ICONINFORMATION);
+
 
 
   end
 
-  else
+  // This will trigger when user inputs 0 or negative num.
+  else if ((setNumPass = 0) Or (setNumPass < 0)) And (flagValid) then
 
   begin
-    Application.MessageBox('Enter the number of passwords to generate.', 'Error', MB_OK Or MB_ICONERROR);
+
+    Application.MessageBox('Can''t generate negative/no passwords.', 'Error', MB_OK Or MB_ICONERROR);
   end;
 
-  // Success message + reset and cleanup of controls.
-  passWordNum.Text := '';
-  setNumPass := -1;
-  Application.MessageBox('Passwords generated.', 'Done', MB_OK Or MB_ICONINFORMATION);
+
 
 end;
 
-procedure TdWordForm.passWordNumKeyUp(Sender: TObject; var Key: Word;
-  Shift: TShiftState);
-{ Only allow numbers to be entered in the box. }
-
+procedure TdWordForm.passWordNumChange(Sender: TObject);
 begin
-
-  if Key in ['A'..'Z', 'a'..'z'] then
-
-  begin
-    passWordNum.Text := '';
-  end
-
-  else if Key in ['0'..'9'] then
-
-  begin
-    setNumPass := StrToInt(passWordNum.Text);
-    genBtn.Enabled := true;
-  end;
-
+  genBtn.Enabled := true;
 end;
 
 end.
