@@ -5,7 +5,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, System.Math,Helpers;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, System.Hash, System.Math, Helpers;
 
 type
   TdWordForm = class(TForm)
@@ -37,11 +37,7 @@ procedure TdWordForm.genBtnClick(Sender: TObject);
   var
     i: Integer;
     cmpName: String;
-  const
-    chooseFrom: array[0..61] of Char = ('a','b','c','d','e','f','g','h','i','j',
-    'k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','A','B','C',
-    'D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V',
-    'W','X','Y','Z','1','2','3','4','5','6','7','8','9','0');
+    hash: String;
 
 
 begin
@@ -66,13 +62,12 @@ begin
     // Clear any previous entries
     passwordListBox.Clear;
 
-    cmpName := getCmpName();
+
 
     for i := 1 to setNumPass do
 
     begin
-      passwordListBox.Items.Add(cmpName);
-      passwordListBox.Items.Add(DateTimeToStr(GetTime()));
+      passWordListBox.Items.Add(hash);
     end;
 
     // Success message + reset and cleanup of controls.

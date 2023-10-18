@@ -1,2 +1,2 @@
 # dWord
-Generate passwords to use for your accounts!
+Generate digital signature based on unique information about your system.

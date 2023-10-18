@@ -18,47 +18,39 @@ object dWordForm: TdWordForm
   object passwordListBox: TListBox
     Left = 8
     Top = 8
-    Width = 236
-    Height = 232
-    Anchors = [akLeft, akTop, akRight, akBottom]
+    Width = 232
+    Height = 231
+    Anchors = [akLeft, akTop, akRight]
     ItemHeight = 15
     TabOrder = 0
-    ExplicitWidth = 232
-    ExplicitHeight = 231
   end
   object genBtn: TButton
     Left = 8
     Top = 301
-    Width = 236
-    Height = 24
-    Anchors = [akLeft, akTop, akRight, akBottom]
+    Width = 232
+    Height = 23
+    Anchors = [akLeft, akTop, akRight]
     Caption = 'Generate'
     Enabled = False
     TabOrder = 1
     OnClick = genBtnClick
-    ExplicitWidth = 232
-    ExplicitHeight = 23
   end
   object passWordNum: TEdit
     Left = 8
     Top = 272
-    Width = 236
-    Height = 24
-    Anchors = [akLeft, akTop, akRight, akBottom]
+    Width = 232
+    Height = 23
+    Anchors = [akLeft, akTop, akRight]
     TabOrder = 2
     OnChange = passWordNumChange
-    ExplicitWidth = 232
-    ExplicitHeight = 23
   end
   object passwordLbl: TStaticText
     Left = 58
     Top = 247
-    Width = 126
-    Height = 19
-    Anchors = [akLeft, akTop, akRight, akBottom]
+    Width = 122
+    Height = 18
+    Anchors = [akLeft, akTop, akRight]
     Caption = 'Passwords to Generate:'
     TabOrder = 3
-    ExplicitWidth = 122
-    ExplicitHeight = 18
   end
 end
