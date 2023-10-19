@@ -1,3 +1,12 @@
+{   d8                      dP                                                                8b
+  d8'                      88                                                                `8b
+ d8'     88d888b. dP    dP 88  .dP  .d8888b. 88d888b. .d8888b. .d8888b. .d8888b. .d8888b.     `8b
+ Y8.     88'  `88 88    88 88888"   88ooood8 88'  `88 88'  `88 88'  `88 88'  `88 88'  `88     .8P
+  Y8.    88       88.  .88 88  `8b. 88.  ... 88       88.  .88 88.  .88 88.  .88 88.  .88    .8P
+   Y8    dP       `8888P88 dP   `YP `88888P' dP       `8888P88 `88888P' `8888P88 `88888P'    8P
+                       .88                                 .88               .88
+                   d8888P                              d8888P            d8888P                   }
+
 unit MainForm;
 
 interface
@@ -36,8 +45,6 @@ procedure TdWordForm.genBtnClick(Sender: TObject);
 
   var
     i: Integer;
-    cmpName: String;
-    hash: String;
 
 
 begin
@@ -62,12 +69,10 @@ begin
     // Clear any previous entries
     passwordListBox.Clear;
 
-
-
     for i := 1 to setNumPass do
 
     begin
-      passWordListBox.Items.Add(hash);
+      passWordListBox.Items.Add(genHash);
     end;
 
     // Success message + reset and cleanup of controls.
