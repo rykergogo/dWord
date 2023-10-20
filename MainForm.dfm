@@ -3,7 +3,7 @@ object dWordForm: TdWordForm
   Top = 0
   Anchors = []
   Caption = 'dWord'
-  ClientHeight = 343
+  ClientHeight = 309
   ClientWidth = 513
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -13,9 +13,9 @@ object dWordForm: TdWordForm
   Font.Style = []
   DesignSize = (
     513
-    343)
+    309)
   TextHeight = 15
-  object passwordListBox: TListBox
+  object signatureListBox: TListBox
     Left = 8
     Top = 8
     Width = 493
@@ -23,11 +23,11 @@ object dWordForm: TdWordForm
     Anchors = [akLeft, akTop, akRight]
     ItemHeight = 15
     TabOrder = 0
-    ExplicitWidth = 228
+    ExplicitWidth = 489
   end
   object genBtn: TButton
     Left = 8
-    Top = 301
+    Top = 274
     Width = 493
     Height = 23
     Anchors = [akLeft, akTop, akRight]
@@ -35,26 +35,32 @@ object dWordForm: TdWordForm
     Enabled = False
     TabOrder = 1
     OnClick = genBtnClick
-    ExplicitWidth = 228
   end
-  object passWordNum: TEdit
-    Left = 8
-    Top = 272
-    Width = 493
+  object signatureNum: TEdit
+    Left = 140
+    Top = 245
+    Width = 361
     Height = 23
+    Alignment = taCenter
     Anchors = [akLeft, akTop, akRight]
     TabOrder = 2
-    OnChange = passWordNumChange
-    ExplicitWidth = 228
+    OnChange = signatureNumChange
   end
-  object passwordLbl: TStaticText
-    Left = 58
-    Top = 247
-    Width = 387
+  object signaturelbl: TStaticText
+    Left = 8
+    Top = 245
+    Width = 126
     Height = 19
-    Anchors = [akLeft, akTop, akRight]
-    Caption = 'Passwords to Generate:'
+    Alignment = taCenter
+    BiDiMode = bdLeftToRight
+    Caption = 'Signatures to Generate:'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -12
+    Font.Name = 'Segoe UI'
+    Font.Style = []
+    ParentBiDiMode = False
+    ParentFont = False
     TabOrder = 3
-    ExplicitWidth = 122
   end
 end

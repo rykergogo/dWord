@@ -18,12 +18,12 @@ uses
 
 type
   TdWordForm = class(TForm)
-    passwordListBox: TListBox;
+    signatureListBox: TListBox;
     genBtn: TButton;
-    passWordNum: TEdit;
-    passwordLbl: TStaticText;
+    signatureNum: TEdit;
+    signaturelbl: TStaticText;
     procedure genBtnClick(Sender: TObject);
-    procedure passWordNumChange(Sender: TObject);
+    procedure signatureNumChange(Sender: TObject);
   private
     { Private declarations }
   public
@@ -40,7 +40,7 @@ implementation
 {$R *.dfm}
 
 procedure TdWordForm.genBtnClick(Sender: TObject);
-{ This will handle the generation of the passwords based on number provided
+{ This will handle the generation of the signatures based on number provided
   by user. }
 
   var
@@ -52,7 +52,7 @@ begin
   try
     // Valid flag is set to true here in case it was false previously.
 
-    setNumPass := StrToInt(passWordNum.Text);
+    setNumPass := StrToInt(signatureNum.Text);
     flagValid := true;
   except
     // Tell the system the input is not valid!
@@ -67,18 +67,18 @@ begin
 
   begin
     // Clear any previous entries
-    passwordListBox.Clear;
+    signatureListBox.Clear;
 
     for i := 1 to setNumPass do
 
     begin
-      passWordListBox.Items.Add(genHash);
+      signatureListBox.Items.Add(genHash);
     end;
 
     // Success message + reset and cleanup of controls.
-    passWordNum.Text := '';
+    signatureNum.Text := '';
     setNumPass := -1;
-    Application.MessageBox('Passwords generated.', 'Done', MB_OK Or MB_ICONINFORMATION);
+    Application.MessageBox('Signatures generated.', 'Done', MB_OK Or MB_ICONINFORMATION);
 
 
 
@@ -89,14 +89,14 @@ begin
 
   begin
 
-    Application.MessageBox('Can''t generate negative/no passwords.', 'Error', MB_OK Or MB_ICONERROR);
+    Application.MessageBox('Can''t generate negative/no signatures.', 'Error', MB_OK Or MB_ICONERROR);
   end;
 
 
 
 end;
 
-procedure TdWordForm.passWordNumChange(Sender: TObject);
+procedure TdWordForm.signatureNumChange(Sender: TObject);
 begin
   genBtn.Enabled := true;
 end;
