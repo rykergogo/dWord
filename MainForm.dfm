@@ -35,6 +35,7 @@ object dWordForm: TdWordForm
     Enabled = False
     TabOrder = 1
     OnClick = genBtnClick
+    ExplicitWidth = 489
   end
   object signatureNum: TEdit
     Left = 140
@@ -45,6 +46,7 @@ object dWordForm: TdWordForm
     Anchors = [akLeft, akTop, akRight]
     TabOrder = 2
     OnChange = signatureNumChange
+    ExplicitWidth = 357
   end
   object signaturelbl: TStaticText
     Left = 8
