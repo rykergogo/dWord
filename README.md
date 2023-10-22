@@ -6,6 +6,7 @@ Generate digital signature based on unique information about your system.
 ## Info
 - Uses SHA256 and Windows machine name to generate signatures.
 
-![dWord_0](https://github.com/rykergogo/dWord/assets/87205868/6a7b529d-ad71-4c49-baa7-2f218ec71a2f)
-![dWord_1](https://github.com/rykergogo/dWord/assets/87205868/0193d88c-599b-4220-aaca-9ef8ea530602)
-![dWord_2](https://github.com/rykergogo/dWord/assets/87205868/2a330ff6-7047-450e-b219-c69e8309a027)
+
+![dWord_0](https://github.com/rykergogo/dWord/assets/87205868/cc028ef1-ae54-41f9-ac7c-12622ddb4ded)
+![dWord_1](https://github.com/rykergogo/dWord/assets/87205868/b8cb87d0-fd3b-48e3-aeb8-bd4d3cd5906e)
+![dWord_2](https://github.com/rykergogo/dWord/assets/87205868/4cba21b3-bd77-41ae-aa88-ce553cf055ef)
